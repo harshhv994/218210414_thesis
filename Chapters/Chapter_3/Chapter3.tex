@@ -1,53 +1,150 @@
-% Chapter Template
+% Chapter 3: User Research
 
-\chapter{Study Methodology}\doublespacing % Main chapter title
+\chapter{User Research}\doublespacing
 
-\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter3}
 
-\lhead{Chapter III. \emph{Study Methodology}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\lhead{Chapter III. \emph{User Research}}
 
 %----------------------------------------------------------------------------------------
-%	SECTION 1
+%	SECTION 3.1
 %----------------------------------------------------------------------------------------
-\section{Introduction}
 
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper
-vestibulum turpis. Pellentesque cursus luctus mauris.
+\section{Overview Of The Research}
 
+This chapter grounds the problem space established in Chapter~1 in primary data collected directly from the IITK undergraduate population. Where Chapter~1 argued --- from general career-guidance literature and a first read of student sentiment --- that the four-year IITK lifecycle produces a specific pattern of choice-overwhelm, unclear prioritization, and unmet support, this chapter tests that argument against a structured sample of actual respondents, and uses the resulting patterns to define the stakeholders, personas, and design brief that Chapter~4 builds the game around.
 
-\section{Methodology}
-\lipsum[2] 
+Data was collected through a structured, self-administered online questionnaire \textit{[confirm platform --- Google Forms / Tally / other]}, distributed \textit{[confirm channels --- e.g.\ hostel-wing WhatsApp groups, batch mailers, Instagram broadcast]} over \textit{[confirm collection window, e.g.\ ``a two-week period in Month, Year'']}. Participation was voluntary and unincentivized \textit{[confirm if any incentive was offered]}. The questionnaire had four parts: (a)~demographics --- Year, Branch, and Gender; (b)~fifteen five-point Likert-scale statements (1~=~Strongly Disagree to 5~=~Strongly Agree) covering choice-overwhelm, time-balance, decision clarity, peer influence, existing support structures, wellbeing cost, and appetite for a game-based intervention; (c)~three multiple-choice questions on time allocation and decision-making reliance; and (d)~a closing consent question asking whether respondents were willing to be contacted for future playtesting.
 
-Nulla ullamcorper
-vestibulum turpis. Pellentesque cursus luctus mauris Figure \ref{fig:figure3_1}.
- 
-\input{Chapters/Chapter_3/figures/figure3_1}
+The form received 124 raw submissions. Ten were exact duplicates --- identical Year, Branch, Gender, and submission-timestamp combinations, consistent with accidental double-submits rather than genuine repeat respondents --- and were removed, leaving $N = 114$ unique responses used throughout this chapter.
 
+This phase relied on quantitative self-report only. Two to four short follow-up interviews were considered, in line with the \textit{Enrich} thesis this project's structure is modelled on, but were not conducted within this phase; this is noted as a limitation in Chapter~6 and as a natural next step, particularly since 58 of 113 respondents who answered the consent question (51.3\%) indicated willingness to be recontacted for playtesting or further research.
 
-\section{Models and Algorithms}
-\lipsum[1]
+%----------------------------------------------------------------------------------------
+%	SECTION 3.2
+%----------------------------------------------------------------------------------------
 
-Here is equation \ref{Eq3_1}.
+\section{User Sample / Participants}
 
-% Equation
-\begin{equation}
-e = \lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n
-\label{Eq3_1}
-\end{equation} 
+The 114 respondents were distributed unevenly across years (Figure~\ref{fig:chap3_fig3_1}): 90 First Years (79.0\%), 12 Alumni (10.5\%), 7 Fourth Years (6.1\%), and 5 Second Years (4.4\%), with no Third Year respondents. This skew toward First Years is a meaningful limitation on how far the findings below can be generalized across the full undergraduate lifecycle --- see the discussion in Section~3.4 and the caveat repeated in Chapter~6 --- but it is also, in one sense, on-topic: First Years are the population closest to the choice-overwhelm and orientation gap this project is centrally concerned with, and the 12 Alumni responses provide a small but valuable retrospective, hindsight-driven contrast used directly in the Section~3.6 personas.
 
-\begin{align}
-	x^2 -25 &= 0 \nonumber \\
-	x^2 &= 25 \nonumber \\
-	\therefore \Aboxed{x &= 5}
- \label{Eq3_2}
-\end{align}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Images/chap3_fig3_1.png}
+  \caption{Year-wise distribution of respondents ($N=114$).}
+  \label{fig:chap3_fig3_1}
+\end{figure}
 
+%----------------------------------------------------------------------------------------
+%	SECTION 3.3
+%----------------------------------------------------------------------------------------
 
+\section{User Research Findings}
 
-\begin{multline}
-	f(x) = 4xy^2 + 3x^3 - 2xy + 25x^3y^3 + 3xy - 4x^6y^6 + 3xy^2 - 2y^3\\ + a^3b^3c^4 + 3x^3 - 2xy + 25x^3y^3 + 3xy\\ - 4x^6y^6 + 3xy^2 - 2y^3 + a^3b^3c^4
-\label{Eq3_3}
-\end{multline}
+\textit{[Note: This section contains the full survey analysis, including Likert-scale results for all 15 statements, multiple-choice distributions, and cross-tabulated findings. Due to the extensive nature of the base64-encoded figures in the source document, figure placeholders are used below. Replace each with the actual extracted image file.]}
 
-\section{Summary}
-\lipsum[2]
+\subsection{Likert-Scale Findings}
+
+The fifteen Likert-scale statements were grouped into seven thematic clusters. The key findings are summarized below, with each cluster's agreement rates (sum of ``Agree'' and ``Strongly Agree'') and disagreement rates (sum of ``Disagree'' and ``Strongly Disagree'') reported.
+
+\begin{itemize}
+  \item \textbf{Choice-Overwhelm:} 82.5\% of respondents agreed or strongly agreed that IITK presents an overwhelming number of choices in academics, clubs, and career paths.
+  \item \textbf{Time-Balance Difficulty:} 77.2\% agreed or strongly agreed that balancing academics, extracurriculars, and personal wellbeing is difficult.
+  \item \textbf{Decision Clarity:} Only 28.1\% felt confident they understood the long-term consequences of their semester-by-semester choices.
+  \item \textbf{Peer Influence:} 64.9\% agreed that peer decisions significantly influenced their own academic and career choices.
+  \item \textbf{Existing Support:} Only 35.1\% agreed that existing institutional support (faculty advisors, CDC workshops) adequately helped them navigate the four-year lifecycle.
+  \item \textbf{Wellbeing Cost:} 71.9\% agreed that the pressure of making consequential decisions without clear guidance negatively affected their mental health or stress levels.
+  \item \textbf{Game-Based Intervention Appetite:} 78.9\% agreed or strongly agreed that a simulation game allowing them to ``rehearse'' the four-year IITK lifecycle would be a useful learning tool.
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Images/chap3_fig3_2.png}
+  \caption{Likert-scale response distributions across all 15 statements.}
+  \label{fig:chap3_fig3_2}
+\end{figure}
+
+\subsection{Multiple-Choice Findings}
+
+The three multiple-choice questions addressed time allocation priorities, decision-making reliance, and retrospective regret.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Images/chap3_fig3_3.png}
+  \caption{Multiple-choice response distributions.}
+  \label{fig:chap3_fig3_3}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3.4
+%----------------------------------------------------------------------------------------
+
+\section{Sample Limitations}
+
+The year-wise skew described in Section~3.2 is the most significant limitation of this dataset. With 79\% of respondents being First Years, the findings above are best understood as a snapshot of the population most immediately experiencing the orientation gap --- not as a representative cross-section of the full four-year student body.
+
+A second limitation is the absence of qualitative data: the survey was entirely quantitative, and while two to four follow-up interviews were planned, they were not conducted within this research phase. This means the ``why'' behind many of the agreement rates remains unexplored; the numbers tell us \textit{that} students feel overwhelmed, but not the specific mechanisms or moments that produce that feeling. This is noted as a natural next step in Chapter~6.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3.5
+%----------------------------------------------------------------------------------------
+
+\section{Key Takeaways}
+
+The survey data supports three central claims that directly inform the game design in Chapter~4:
+
+\begin{enumerate}
+  \item \textbf{Finding 1: Choice-overwhelm is real and widespread.} More than four in five respondents report feeling overwhelmed by the number of choices IITK presents.
+  \item \textbf{Finding 2: Support structures are perceived as inadequate.} Nearly two-thirds of respondents do not feel that existing institutional support helps them navigate the lifecycle.
+  \item \textbf{Finding 3: There is strong appetite for a game-based intervention.} Nearly four in five respondents expressed interest in a simulation game that lets them rehearse the four-year lifecycle.
+\end{enumerate}
+
+These three findings together constitute the primary evidence base for the design strategy statement in Section~3.7 and the game concept developed in Chapter~4.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3.6
+%----------------------------------------------------------------------------------------
+
+\section{User Personas}
+
+Based on the survey data and the three key findings above, three composite personas were developed to represent the primary user archetypes the game is designed for.
+
+\subsection{Persona 1: The Overwhelmed First Year}
+\textit{[Based on the dominant survey cohort --- First Year students who report high choice-overwhelm and low decision clarity.]}
+
+\subsection{Persona 2: The Retrospective Alumni}
+\textit{[Based on the 12 Alumni respondents who bring hindsight-driven perspective on the four-year lifecycle.]}
+
+\subsection{Persona 3: The Balanced Generalist}
+\textit{[A composite persona representing students who attempt to balance academics, extracurriculars, and wellbeing --- the strategy the game is designed to make visible and testable.]}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3.7
+%----------------------------------------------------------------------------------------
+
+\section{Design Strategy Statement}
+
+Drawing on the three key findings from Section~3.5 and the three personas from Section~3.6, the design strategy statement for this project is:
+
+\begin{quote}
+``How might we give IITK undergraduates a low-stakes way to rehearse the trade-offs of their four-year lifecycle --- balancing academics, clubs, projects, social life, and wellbeing against the ticking clock of eight semesters --- so that they can make more informed, less anxious decisions in real life?''
+\end{quote}
+
+This statement directly frames the game concept developed in Chapter~4.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3.8
+%----------------------------------------------------------------------------------------
+
+\section{Decision-Tree Analysis of IITK Placement Data}
+
+This section describes a secondary data analysis conducted to ground the game's placement mechanics in empirical evidence. A decision-tree model was trained on 57 anonymized IITK resumes matched against their actual 2024 SPO placement outcomes. The five features that best separated one placement outcome from another were: CPI, Algorithmic/Coding skill, Positions of Responsibility (POR), Research experience, and Product/Design experience.
+
+These five dimensions became the five resume-stat axes tracked in the game's internal economy (Section~4.6) and the basis for the placement eligibility thresholds in \texttt{placement.csv} (Section~5.1.7).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Images/chap3_fig3_4.png}
+  \caption{Decision-tree analysis: feature importance for placement outcome prediction.}
+  \label{fig:chap3_fig3_4}
+\end{figure}

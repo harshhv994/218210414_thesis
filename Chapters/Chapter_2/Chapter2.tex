@@ -1,55 +1,245 @@
-% Chapter Template
+% Chapter 2: Literature Review
 
-\chapter{Literature Review}\doublespacing % Main chapter title
+\chapter{Literature Review: Systemic Design for Academic and Career Transition}\doublespacing
 
-\label{Chapter2} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\label{Chapter2}
 
-\lhead{Chapter II. \emph{Literature Review}} % 
+\lhead{Chapter II. \emph{Literature Review}}
 
-\section{Introduction}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. \cite{Rothman-2022} purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-\lipsum[2]
+%----------------------------------------------------------------------------------------
+%	SECTION 2.1
+%----------------------------------------------------------------------------------------
+\section{What Is Career Agency / Self-Directed Career Exploration?}
 
+Vocational psychology distinguishes several related but distinct constructs relevant to this thesis: career agency, career self-efficacy, career adaptability, and self-directed career exploration.
 
-\section{Literature Review}
-Vestibulum ut, placerat ac, adipiscing vitae, felis \citep{li-1984}.
+Career agency is a student's capacity to actively direct and navigate their own professional path, rather than passively reacting to institutional or peer pressure~\cite{Taber-2015}. It draws on Albert Bandura's Social Cognitive Theory, which frames individuals as self-organising, proactive agents who continuously shape --- and are shaped by --- their environment~\cite{Bandura-1986}. Agency, in this sense, means a student has the intent and ownership to weigh alternatives and make self-governed choices instead of defaulting to what peers are doing.
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem
-non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec
-aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio
-metus a mi \citep{li-1984, WHO-2018}.
+Career self-efficacy is narrower: it is a person's belief in their own ability to execute the specific actions a career goal requires~\cite{Bandura-1986}. In higher education this is usually measured as Career Decision-Making Self-Efficacy (CDMSE) --- confidence across five tasks: self-assessment, gathering occupational information, goal selection, future planning, and problem-solving under uncertainty~\cite{Hackett-1981}.
 
-Here is Figure \ref{fig:figure2_1}.
+Career adaptability is broader again --- a psychosocial resource rather than a single belief. Mark Savickas's Career Construction Theory (CCT) proposes it as a contextual alternative to Donald Super's older, more linear idea of ``career maturity''~\cite{Taber-2015, Wang-2024-CCT, Savickas-2013}: rather than assuming career development follows a fixed age-based sequence, CCT treats it as continuous adaptation to a changing environment~\cite{Savickas-2013, Savickas-2012}. Savickas organises this adaptability into four dimensions, the ``4Cs'':
 
-\input{Chapters/Chapter_2/figures/figure2_1}
+\begin{itemize}
+    \item \textbf{Concern} --- future-oriented awareness of upcoming transitions~\cite{Savickas-2012}.
+    \item \textbf{Control} --- the ownership and self-discipline a student brings to their own decision-making~\cite{Savickas-2012}.
+    \item \textbf{Curiosity} --- active exploration of oneself and of alternative paths~\cite{Savickas-2012}.
+    \item \textbf{Confidence} --- the self-efficacy to execute a plan and push through obstacles~\cite{Savickas-2012}.
+\end{itemize}
 
-\lipsum[2]
+Self-directed career exploration is what these resources look like in practice. During emerging adulthood (roughly ages 18--25), university students go through an intensive period of identity and value formation~\cite{Arnett-2000}, and self-directed exploration is the behavioural loop of actively seeking career-relevant experience, gathering information, and testing out different identities~\cite{Taber-2015, Savickas-2012}. But the literature is clear that encouraging exploration is not sufficient on its own: unguided self-exploration in a structurally rigid environment frequently produces information overload, which can paradoxically freeze rather than build a student's career adaptability~\cite{Low-2026}.
 
-\input{Chapters/Chapter_2/figures/figure2_2}
+Savickas's four dimensions map onto specific mechanics already implemented in the digital prototype, not onto the system as a whole. \textbf{Concern} is the transparency of the Placement phase's match-percentage calculation, which lets a player see an approaching Universal Gate's requirements well before Turn 10. \textbf{Control} is Time Block allocation each turn. \textbf{Curiosity} is the Opportunity phase's card-drafting choice across Projects, POR, and Internship pools. \textbf{Confidence} is the property the repeated-playthrough structure is designed to build across successive games, as a rehearsal mechanism rather than a single pass/fail attempt. Each of the 4Cs therefore has a concrete, testable referent in the system evaluated in Chapters~\ref{Chapter4} and~\ref{Chapter5}, rather than sitting only as background theory.
 
-\lipsum[2]
+\begin{table}[htbp]
+\centering
+\caption{Career Theory Constructs: Origins and Operational Definitions}
+\label{tab:career_constructs}
+\begin{tabular}{@{}p{3cm}p{3.5cm}p{3.5cm}p{4cm}@{}}
+\toprule
+\textbf{Construct} & \textbf{Foundational Origin} & \textbf{Core Focus} & \textbf{Operational Definition Here} \\
+\midrule
+Career Agency & Social Cognitive Theory (Bandura)~\cite{Bandura-1986} & Intentionality and active ownership & Capacity to make self-governed, non-default decisions about life tracks~\cite{Taber-2015}. \\
+\addlinespace
+Career Self-Efficacy & Self-Efficacy Model (Bandura; Betz \& Hackett)~\cite{Bandura-1986, Hackett-1981} & Subjective belief in capability & Confidence in executing decision-making tasks under uncertainty~\cite{Hackett-1981}. \\
+\addlinespace
+Career Adaptability & Career Construction Theory (Savickas)~\cite{Savickas-2013, Savickas-2012} & The ``4Cs'' --- contextual psychosocial resources~\cite{Savickas-2012} & Readiness to adapt to unexpected institutional and labour-market transitions~\cite{Taber-2015, Low-2026}. \\
+\addlinespace
+Self-Directed Exploration & Life-Span, Life-Space Theory (Super; CCT)~\cite{Taber-2015, Savickas-2013} & Behavioural trial-and-error & Active, self-initiated information-gathering, networking, and path-testing~\cite{Taber-2015, Arnett-2000}. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\input{Chapters/Chapter_2/figures/figure2_3}
+%----------------------------------------------------------------------------------------
+%	SECTION 2.2
+%----------------------------------------------------------------------------------------
+\section{Importance Of Career Agency For Undergraduates}
 
-\lipsum[2]
+Career agency and adaptability are not just theoretically desirable --- a growing empirical literature links them directly to both psychological wellbeing and post-graduation employment outcomes. Low, Cheng, and Ng's 2026 systematic review of 33 empirical studies (2020--2025) establishes career adaptability as a psychological buffer that directly predicts proactive career planning, graduate employability, and mental wellbeing~\cite{Low-2026}.
 
-\input{Chapters/Chapter_2/figures/figure2_4}
+The link to psychological distress specifically is strong. Undergraduates today navigate what the literature calls VUCA (volatile, uncertain, complex, ambiguous) environments~\cite{Low-2026}, and students with higher adaptability show measurably lower career-related anxiety. Wang (2026) found that career adaptability negatively predicts AI-related anxiety, partly mediated by core self-evaluations that act as a cognitive buffer against fears of professional displacement~\cite{Wang-2026-AI}. Ya\c{s}ar and Karagucuk (2025) similarly found AI anxiety acts as an emotional inhibitor that impairs career decidedness in departments facing rapid technological change~\cite{Yasar-2025}. More broadly, insufficient adaptability is linked to elevated risk of anxiety and depression during stressful school-to-work transitions~\cite{Low-2026, Zhang-2025}, while a clear future work self --- a cognitive pillar of career agency --- reduces decision-making difficulty and builds resilience~\cite{Taber-2015}.
 
-\lipsum[1-2]
-Here is Table \ref{tab: table2_1}.
-\input{Chapters/Chapter_2/tables/table2_1}
+This connects directly to the Chapter~\ref{Chapter3} survey data: 67.5\% of IITK respondents report high stress or anxiety in a typical semester, and 35.1\% report an unmet need for mental health support (Section~3.3). Read against the literature above, this is not simply personal struggle --- it is a structural symptom of a guidance vacuum. When 81.6\% of respondents report regularly sacrificing sleep to balance competing demands, and only 27.2\% report feeling clear on how to prioritise (Section~3.3), students are spending a non-renewable resource inside an unscaffolded environment --- precisely the condition the literature associates with chronic burnout and amotivation~\cite{Maji-2024}. Building agency is what gives students a framework for weighing that spend, rather than defaulting to it.
 
+The labour-market evidence points the same way. Carkit's (2025) structural equation model of 296 final-year students in T\"{u}rkiye found that informal job-search support does not reduce employment anxiety directly, but works entirely through job search self-efficacy --- support raises self-efficacy, which then drives both career optimism and lower anxiety~\cite{Carkit-2025}. Zhang, Talib, and Wang (2025) tested this causally: a five-week Career Planning Education program grounded in CCT and social cognitive theory produced significant gains in adaptability and decision-making self-efficacy against a waiting-list control, in a quasi-experiment with 75 undergraduates~\cite{Zhang-2025}.
 
-\section{Research Gaps}
-\lipsum[1-4]
+\begin{table}[htbp]
+\centering
+\caption{Empirical Evidence Linking Career Adaptability to Outcomes}
+\label{tab:career_evidence}
+\begin{tabular}{@{}p{3cm}p{3cm}p{2.5cm}p{4.5cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Design \& Sample} & \textbf{Mediator} & \textbf{Key Finding} \\
+\midrule
+Low, Cheng \& Ng (2026)~\cite{Low-2026} & Systematic review, 33 studies (2020--2025) & Resilience, self-efficacy, search clarity & Adaptability predicts school-to-work transitions, employability, satisfaction. \\
+\addlinespace
+Wang (2026)~\cite{Wang-2026-AI} & Latent profile \& correlation analysis ($N=444$) & Core self-evaluations & Adaptability negatively predicts AI anxiety. \\
+\addlinespace
+Ya\c{s}ar \& Karagucuk (2025)~\cite{Yasar-2025} & Mixed methods ($N=332$) & Qualitative interviews & AI anxiety inhibits career decidedness. \\
+\addlinespace
+Carkit (2025)~\cite{Carkit-2025} & SEM, $N=296$ seniors (T\"{u}rkiye) & Job search self-efficacy & Support $\rightarrow$ self-efficacy $\rightarrow$ optimism, $\downarrow$ anxiety. \\
+\addlinespace
+Zhang, Talib \& Wang (2025)~\cite{Zhang-2025} & Quasi-experiment, $N=75$ & CPE curriculum & 5-week CPE improves adaptability \& CDMSE. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
+%----------------------------------------------------------------------------------------
+%	SECTION 2.3
+%----------------------------------------------------------------------------------------
+\section{Rationale Behind The Target Audience (IITK Undergraduates)}
 
+Indian engineering undergraduates at premier institutions like the IITs face a distinct set of pressures: intense parental expectation, rigid institutional gatekeeping, and a pre-university phase that shapes their psychology before they even arrive.
 
-\section{Summary}
-\lipsum[2]
+Admission itself typically follows years in high-pressure coaching environments (Kota, Aligarh, and similar hubs), associated with extreme academic anxiety and eroded autonomy~\cite{Maji-2024, Afreen-2022}. Afreen and Alam (2022) found this preparatory stress directly correlated with clinical distress and suicidal ideation among 140 coaching students in Aligarh --- a vulnerability many carry onto campus~\cite{Afreen-2022}.
 
+Once enrolled, students face what Maji et al.\ (2024) call the ``centrality of engineering identity'': in IIT's competitive, peer-mediated environment, students often struggle to see their self-worth as anything other than ``an engineering student''~\cite{Maji-2024}. In a mixed-methods study (16 qualitative interviews, 395 quantitative respondents), Maji et al.\ found mental health distress tied closely to this identity rigidity, parental control, and peer competition, with academic amotivation mediating the link between stress and mental health outcomes; male students scored worse on mental health and lower on extrinsic motivation than female students~\cite{Maji-2024}. A 2020 IIT Bombay mental health survey found 72.6\% of respondents reporting significant mental health issues, with 83.0\% describing this as a normal, structural part of campus life~\cite{Yasar-2026}; an IIT Kharagpur survey separately identified academic pressure (65.3\%) and career anxiety (63.6\%) as the two leading drivers of student mental health crises~\cite{Carkit-2025}.
 
+Rigid institutional gates compound this. Gao (2025) documents how uniform performance quotas at IIT Madras --- such as mandating a journal publication every semester on pain of grading penalties --- ignore individual variation and foster chronic low-level anxiety~\cite{Chandrasekera-2024}. For undergraduates specifically, the equivalent gates arrive early: branch allocation is finalised in the first year based on immediate performance, locking students into a technical track before they have had a real chance to explore their interests~\cite{Maji-2024}, and a CPI snapshot at the end of the sixth semester is permanently locked to gate placement eligibility. The result is a high-stakes, irreversible timeline that restricts exploration and limits agency.
 
+The IITK diagnostic survey shows the same rigidity in numbers (Section~3.3, Figure~3.11): 51.8\% of respondents say academics consumes the majority of their time, while only 4.4\% can prioritise career preparation and 3.5\% health and wellness. This is directly linked to the grading system: to secure a competitive SPI, students face steep, escalating Performance Thresholds where each additional grade point demands a disproportionate share of a fixed 17 weekly Time Blocks, and missing a threshold can permanently lower the CPI that later gates competitive placement --- so sleep and wellness are what gets sacrificed first~\cite{Maji-2024}. This is compounded by the non-negotiable nature of Universal Gates such as early branch allocation and the SPO enrolment lock, which force commitment before self-awareness has had room to develop~\cite{Maji-2024, Chandrasekera-2024}.
 
+The consequences show up downstream too: Mercer-Mettl's 2025 Graduate Skill Index found only 42.6\% of Indian engineering graduates possess the technical, cognitive, and adaptive readiness for immediate workplace competency~\cite{MercerMettl-2025} --- suggesting that a high-stress, exam-focused pipeline can produce distress without reliably building long-term professional adaptability~\cite{MercerMettl-2025, Maji-2024}.
 
+%----------------------------------------------------------------------------------------
+%	SECTION 2.4
+%----------------------------------------------------------------------------------------
+\section{Existing Solutions (Mentors, Peer-Mentoring Programs, LLM Career Tools)}
 
+\subsection{Human Mentoring: Efficacy and Structural Constraints}
+
+Near-peer mentoring (NPM) --- senior students supporting junior students through transitions --- is widely used in technical universities, and structured NPM can genuinely support first-year adjustment, institutional belonging, and reduced imposter phenomenon~\cite{Chandrasekera-2024, Yasar-2026}. Chandrasekera, Hosseini, Jayadas, and Boorady's (2024) evaluation of the PeTe (Peer Teaching) program, which embeds senior design students as peer mentors in undergraduate studios, found improved retention, lower faculty burden, and a stronger sense of professional identity among mentees~\cite{Chandrasekera-2024}.
+
+But human-led mentoring has real structural limits. Yasar and K\"{u}\c{c}\"{u}kali's (2026) mixed-methods evaluation of a vertical-studio NPM model (second-year mentees, fourth-year mentors) identifies three recurring constraints~\cite{Yasar-2026}:
+
+\begin{enumerate}
+    \item Academic oversubscription --- mentors are themselves busy technical students, which produces ad-hoc, unequal access to support~\cite{Yasar-2026}.
+    \item Crisis-driven default --- mentoring interactions cluster reactively around deadlines rather than serving as proactive spaces for exploration~\cite{Yasar-2026}.
+    \item Ambiguous mentoring boundaries --- without structured tools, mentors often default to imposing their own choices rather than fostering independent decision-making~\cite{Yasar-2026}.
+\end{enumerate}
+
+This deficit is directly visible in the IITK data (Section~3.3, Figures~3.7,~3.10): 49.1\% of students found their SG/AM helpful during early orientation, but only 4.4\% rely on them for major life decisions, and only 5.3\% rely on seniors. This is not a relational problem --- 44.7\% feel comfortable approaching seniors --- it is navigational: only 40.4\% know whom to ask for a given decision. Lacking a structured way to navigate, 39.5\% default to relying mainly on themselves and 26.3\% on their immediate wing, producing intense peer-mirroring (52.6\% report deciding based on what friends are doing) even as 43.0\% report feeling lonely or isolated in the same decisions.
+
+\subsection{LLM-Based Career Tools: The Critique of Prescriptive Advice}
+
+Conversational AI tools --- such as Future You --- can reduce immediate career anxiety by simulating dialogue with a future self, but their usefulness for building durable decision-making skill is limited~\cite{Pataranutaporn-2024, Savickas-2013}. Yatani, Sramek, and Yang (2024) argue that LLM tools are built to give direct, optimised answers to immediate queries, which bypasses the recursive reasoning that self-directed exploration actually requires~\cite{Yatani-2024}. Rather than helping students grapple with real trade-offs, LLM tools tend to present idealised, friction-free pathways~\cite{Du-2024}, which can produce cognitive passivity --- reliance on an automated answer instead of developing personal adaptability~\cite{Yatani-2024, Du-2024}. Generic LLMs also struggle to model the specific relative grading scales, time constraints, and social structures of a particular institution, leaving their advice conceptually disconnected from a student's actual daily life.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2.5
+%----------------------------------------------------------------------------------------
+\section{Why Game-Based / Simulation-Based Learning?}
+
+\subsection{Theoretical Foundations}
+
+Game-based learning (GBL) uses structured interactive rules --- procedural rhetoric --- to help players build a working mental model of a complex real-world system~\cite{Bayeck-2020}. Three established theories explain why this works for career-decision rehearsal specifically:
+
+\begin{enumerate}
+    \item \textbf{Flow Theory} (Csikszentmihalyi) --- optimal learning happens when a system keeps challenge and skill in dynamic balance~\cite{Csikszentmihalyi-1990}; in a career simulation this keeps a player from either amotivation (an unnavigable challenge) or boredom (too little engagement)~\cite{Maji-2024, Csikszentmihalyi-1990}.
+    \item \textbf{Intrinsic Motivation in Games} (Malone) --- effective educational games combine curiosity, challenge, and fantasy to sustain engagement~\cite{Malone-1981}; embedding real structural constraints (like a time budget) inside a fictional, persona-adjacent setting lets students explore choices without real-world failure risk.
+    \item \textbf{Active Learning Through Games} (Gee) --- games are active problem-solving environments, not passive content delivery: players interact with rules, experience compounding consequences, and adapt strategy from systemic feedback~\cite{Gee-2007} --- the same trial-and-error loop real career exploration requires~\cite{Savickas-2013, Bayeck-2020}.
+\end{enumerate}
+
+\subsection{Self-Efficacy Building and Decision-Rehearsal}
+
+Serious simulations are particularly suited to decision-rehearsal: they let students safely test life paths, resource trade-offs, and strategies without irreversible real-world cost~\cite{Bayeck-2020}. Turning abstract stressors into quantified mechanics (spending a finite resource token) helps students build a working mental model of a complex institutional environment~\cite{Bayeck-2020}. Gong, Bazakidi, and Zary's (2019) systematic review of serious games in professional education analysed 18 controlled trials, of which 14 showed significantly higher post-test learning and self-efficacy scores than conventional teaching~\cite{Gong-2019}. Rehearsal appears to work as a genuine psychological buffer: when a student can interact with a systemic representation of an upcoming transition --- managing time blocks, navigating performance thresholds --- their perceived control over that transition increases measurably~\cite{Gong-2019}, converting an intimidating gate into a navigable system and directly building Career Decision-Making Self-Efficacy~\cite{Hackett-1981, Gong-2019}.
+
+The Chapter~\ref{Chapter3} data supports the same conclusion locally: 72.8\% of surveyed students want to safely ``try out'' different life paths before committing, 66.7\% agree an interactive game is more useful than slides for exploring trade-offs, and 65.8\% are interested in playing and giving feedback on such a tool (Section~3.3, Figures~3.6,~3.9). That is a clear, unmet demand for a low-stakes rehearsal space, not simply for more information.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2.6
+%----------------------------------------------------------------------------------------
+\section{Existing Career \& Life-Simulation Games/Tools}
+
+To position the IITK Campus Simulator within the existing landscape, Table~\ref{tab:existing_tools} compares it against digital, physical, and hybrid tools across target audience, core mechanic, whether the tool is grounded in local institutional data, and whether it includes a physical time-resource-scarcity mechanic --- the two dimensions where the existing landscape is weakest.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of Career and Life-Simulation Tools}
+\label{tab:existing_tools}
+\small
+\begin{tabular}{@{}p{3cm}p{1.8cm}p{4cm}p{2cm}p{2cm}@{}}
+\toprule
+\textbf{Tool} & \textbf{Medium} & \textbf{Core Mechanic} & \textbf{Local Data?} & \textbf{Time-Scarcity?} \\
+\midrule
+CareerSim~\cite{Du-2024} & Digital (LLM) & Conversational scenarios, automated reflections & No & No \\
+\addlinespace
+Future You~\cite{Pataranutaporn-2024} & Digital & Conversational AI future-self dialogue & No & No \\
+\addlinespace
+CareerPooler~\cite{Wang-2025-CareerPooler} & Digital & Metaphorical ``pool'' simulation of pathways & No & No \\
+\addlinespace
+The Game of Life & Physical board & Linear roll-and-move career track & No & No \\
+\addlinespace
+Success Print (Succation)~\cite{SuccessPrint-2024} & Physical poster & Static Monopoly-themed visual milestones & No & No \\
+\addlinespace
+Suburbia~\cite{Sousa-2021} & Physical board & Tile-laying, population/reputation/income tracks & No & Yes \\
+\addlinespace
+Lisboa~\cite{Sousa-2021} & Physical board & Eurogame card-play, economic simulation & No & Yes \\
+\addlinespace
+Township~\cite{Dhar-2022} & Digital app & City-building resource management & No & No \\
+\addlinespace
+Dr.\ Kawashima's Brain Training~\cite{Main-2011, Main-2017} & Digital (handheld) & Timed cognitive/logic exercises & No & No \\
+\addlinespace
+IITK Campus Simulator (ours) & Physical board & Card drafting, relative SPI grading, non-renewable time budget across 5 life domains & Yes ($N=114$ survey + $N=57$ placement decision tree) & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The Design Void}
+
+This comparison reveals a clear gap. Classic physical games like The Game of Life rely on deterministic roll-and-move mechanics with little room for strategic time allocation. Modern Eurogames like Suburbia or Lisboa simulate multi-layered resource trade-offs effectively through physical components~\cite{Sousa-2021}, but are built for general entertainment with no connection to vocational psychology or institutional student experience. Digital career tools like CareerSim or Future You are effective for rapid, individual reflection~\cite{Du-2024, Pataranutaporn-2024}, but being digital, individual, and text-based, they cannot simulate the peer-mediated, social dynamics of a competitive campus. Static visual tools like the Success Print series borrow board-game aesthetics to normalise career milestones~\cite{SuccessPrint-2024} but have no interactive rules or decision loops at all. This leaves a clear opening for a physical, multiplayer simulation that combines the systemic resource-management of a modern Eurogame with the localised, peer-driven realities of the technical undergraduate lifecycle.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2.7
+%----------------------------------------------------------------------------------------
+\section{Board Games Vs Digital Simulations}
+
+\subsection{Face-to-Face Social Interaction and Co-Presence}
+
+The main limitation of an individual digital simulation is isolation: in an already stressful environment, unguided digital interaction can reinforce isolation or peer-mirroring rather than counteract it. Physical board games, by contrast, require face-to-face interaction among players and facilitators~\cite{Bartolucci-2019, Booth-2019}, creating a shared space where players can discuss, negotiate, and reflect on choices together~\cite{Booth-2019}. Because multiple players navigate the same simulated space at once, they observe each other making different trade-offs and reaching different outcomes~\cite{Bayeck-2020, Booth-2019} --- a shared experience that helps reduce decision anxiety and break rigid peer-mirroring loops~\cite{Booth-2019}.
+
+This maps directly onto the Chapter~\ref{Chapter3} findings (Section~3.3, Figures~3.3--3.5, Table~3.1): 43.0\% of respondents report loneliness or isolation when making critical choices, while 52.6\% report frequently deciding based on what friends are doing. Students are mirroring peers to cope with transition stress while still feeling isolated in the decision itself --- a tension a shared physical game is well positioned to address by turning individual exploration into collaborative dialogue~\cite{Booth-2019}.
+
+\subsection{Cognitive and Tactile Benefits of Analog Play}
+
+Physical manipulation of game components --- placing tiles, tracking resources with tokens, organising cards --- gives immediate, tangible feedback that helps players build a mental model of the underlying system~\cite{Sousa-2021}. Three specific advantages are documented in the literature:
+
+\begin{itemize}
+    \item \textbf{Reduced cognitive distraction} --- physical components avoid the split-attention effects of screen-based notifications; Carr (2013) documents a consistent student preference for print over screen for deep, focused study~\cite{Carr-2013}.
+    \item \textbf{Stronger memory retention} --- tangible cards and physical layout provide stronger memory anchors than off-screen digital equivalents~\cite{Carr-2013}.
+    \item \textbf{Better concept evaluation} --- direct spatial interaction with physical cards and boards reduces cognitive load and improves collaborative problem-solving versus a digital interface, a practice professional design studios rely on when printing mock-ups for review~\cite{Pixelixe-2024}.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\caption{Physical Tabletop vs.\ Digital Simulation: Key Dimensions}
+\label{tab:tabletop_vs_digital}
+\begin{tabular}{@{}p{2.5cm}p{5.5cm}p{5cm}@{}}
+\toprule
+\textbf{Dimension} & \textbf{Physical Tabletop} & \textbf{Digital Simulation} \\
+\midrule
+Social co-presence & High --- face-to-face dialogue, negotiation, direct observation of peers~\cite{Bartolucci-2019, Booth-2019} & Low --- typically individual, screen-isolated~\cite{Booth-2019} \\
+\addlinespace
+Tactile interaction & Physical tokens/cards give tangible feedback, reinforcing memory~\cite{Sousa-2021, Pixelixe-2024} & Screen-based; lacks tactile feedback~\cite{Pixelixe-2024} \\
+\addlinespace
+Distraction \& load & Low --- the board is a single shared visual focus~\cite{Carr-2013} & Higher risk of multitasking/notification overload~\cite{Carr-2013} \\
+\addlinespace
+System visibility & Fully transparent --- players compute and execute the rules by hand~\cite{Bayeck-2020, Bartolucci-2019} & Often opaque --- logic hidden behind code~\cite{Yatani-2024} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This transparency argument was central to how the simulator itself developed. The initial prototype was a digital engine in vanilla JavaScript, driven by eight modular CSV databases (timeline, friction, POR, internships, placement, projects, social, and locations), built specifically to validate the state-machine transitions and resource math before any physical component existed. That digital engine was effective for rapid, programmatic testing, but it is fundamentally individual --- it cannot foster the peer dialogue Section~\ref{Chapter2} argues is central to the intervention. Translating it into a physical, analog game is what makes the underlying resource math visible: by physically spending Time Block tokens and tracking SPI on a shared board, players build a tangible, intuitive grasp of the same trade-offs the digital engine validated numerically.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2.8
+%----------------------------------------------------------------------------------------
+\section{Summary And Implications}
+
+This chapter's literature review provides a theoretical and empirical case for the IITK Campus Simulator as a physical, four-player serious board game. Bringing together vocational psychology, serious-games research, and the socio-academic realities of an elite technical institute points to a consistent set of design implications.
+
+First, existing career-guidance models do not build genuine agency. Traditional mentoring is constrained by academic oversubscription into unstructured, reactive peer-mirroring~\cite{Chandrasekera-2024, Yasar-2026}; digital LLM platforms tend toward prescriptive, context-blind advice that produces cognitive passivity rather than critical reflection~\cite{Yatani-2024, Du-2024}. The literature suggests this gap is well addressed by a multiplayer serious board game~\cite{Bayeck-2020, Booth-2019}, drawing on procedural rhetoric, flow theory, and intrinsic-motivation design to create a safe, low-stakes rehearsal environment~\cite{Bayeck-2020, Csikszentmihalyi-1990, Malone-1981}.
+
+Second, the simulator's three core constructs map directly onto the tensions identified in the survey data: Time Blocks model the absolute scarcity behind the balancing-difficulty finding~\cite{Maji-2024}; Performance Thresholds replicate the relative grading scale behind the academic-stress finding~\cite{Maji-2024}; and Universal Gates structure gameplay around the same non-negotiable institutional checkpoints --- SPO eligibility, branch change --- that drive identity foreclosure and reactive peer-mirroring in real life~\cite{Maji-2024, Afreen-2022, Chandrasekera-2024}.
+
+Third, by simulating relatable peer trajectories, the tabletop format itself encourages face-to-face dialogue~\cite{Pace-2025, Bayeck-2020}, helping reduce decision-making anxiety and break the isolation/peer-mirroring cycle documented in Section~\ref{Chapter2}~\cite{Booth-2019}. Together, these three points are the direct justification for replacing generic, automated advice with a hands-on rehearsal space --- allowing students to safely explore different paths and build career agency before, not after, the choices become irreversible.
+
+Research Objectives 1 and 2 (Section~1.4) are answered directly by Sections~2.1--2.3; Objective 3 is the gap identified in Section~2.6; Objective 4 is the validation methodology Section~2.7 argues for and Chapter~\ref{Chapter4}'s balancing plan (Section~4.7) carries out.
