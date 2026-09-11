@@ -1,101 +1,122 @@
-% Chapter Template
+% Chapter 4: Game Design
+\chapter{Game Design}\doublespacing
+\label{Chapter4}
+\lhead{Chapter IV. \emph{Game Design}}
 
-\chapter{Data Collection and Extraction}\doublespacing % Main chapter title
 
-\label{Chapter4} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
 
-\lhead{Chapter IV. \emph{Data Collection and Extraction}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\section{Game}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+Games occupy a distinct position among design interventions: they are the only medium that lets a person act inside a set of consequences before those consequences are real. Where advice, talks, and static materials describe a decision, a game lets a player make it, live with its downstream effects across a compressed timeline, and --- critically --- make it differently the next time. This is the property Chapter 1 identifies as structurally missing from the IITK undergraduate lifecycle: a four-year sequence of front-loaded, largely irreversible commitments (branch allocation, internship selection, the CPI lock at the sixth semester) for which "almost none of it is rehearsable: a student cannot 'try on' a branch, a POR, or a placement track before living through it once, for real, with real academic and social cost." A game is, formally, a rehearsal space for exactly this class of problem --- it substitutes a bounded, repeatable simulation for a single, unrepeatable lived trajectory.
 
+The empirical case for this medium specifically, rather than guidance in any other form, is made directly in Chapter 3. Seventy-three percent of surveyed students wished they could "try out" different life paths safely before committing to them (Figure 3.6), sixty-six percent expressed interest in a game-based tool for exploring these trade-offs, and sixty-seven percent agreed a game would be more useful than talks or PPTs for the same purpose. Section 3.4's Finding 5 reads this cluster of results as a demand for something to rehearse against, not for more advice delivered through a different channel. This is the premise Chapter 4 takes as settled: the open question this chapter answers is not whether a game is the right intervention, but what game, built from which mechanics, answers the specific brief Chapter 3 arrives at in Section 3.7 --- giving students a low-stakes way to rehearse Time Block trade-offs so that arriving at each Universal Gate feels like an informed choice rather than a default inherited from their wing.
 
+\section{Game Design}
 
+This thesis does not design a game and then look for a simulation to justify it; it inverts the usual order. The design thinking process described in Section 1.3 already produced, during the Prototype phase, a fully coded, single-player digital engine --- a vanilla JavaScript state machine (state.js, controller.js, logic.js) driven by eight modular CSV databases --- built specifically to validate that the resource economy implied by Time Blocks, Performance Thresholds, and Universal Gates was numerically coherent before any physical component existed. Section 1.3's Test and Iterate phase describes this validation directly: "headless simulation runs replicate distinct student profiles across hundreds of execution loops to uncover mechanical imbalances, locate structural traps, and calibrate baseline victory parameters."
 
+The design philosophy that follows from this sequencing is therefore one of translation, not invention. Every core number in the physical game --- the 17 Time Blocks per semester, the seven-step SPI grading scale, the cost/reward profile on any given card --- already exists as a tested value in the digital prototype, and Chapter 4's task is to carry that tested economy into a four-player physical artefact without silently changing what it measures. This has two direct consequences for how the rest of the chapter is written. First, wherever a mechanic is described, it is described from what the code actually does --- Section 4.3 onward cites specific functions (getBlocksForTurn, calculateSemesterSPI, evaluateAllPlacements) and specific CSV rows rather than generic game-design language, because the whole point of the translation is fidelity to a system that has already been built and run, not a fresh design exercise. Second, and just as important, the prototype is single-player: state is one object, and there is no comparison, scoring, or win-condition logic anywhere in the codebase. The physical game's defining new requirement --- turning one validated economy into a competitive, comparative four-player experience --- is therefore a genuine design decision this chapter has to make explicitly, not something that can be extracted from the repository. Section 4.3.2 treats this as the single most consequential open decision in the chapter and proposes options rather than presenting an answer as already decided.
 
+\subsection{Game Structure}
 
-\section{Introduction}
-\noindent
+The simulation's timeline is built from two nested units: Turns, the atomic unit the engine actually advances through, and Semesters, the academic unit the player experiences. There are 11 turns mapped onto 8 semesters --- the mapping is not one-to-one, because three turns are reserved for non-academic checkpoints rather than a numbered semester: Turn 5 (Interlude), Turn 8 (Summer), and Turn 10 (Placement Drive). The turn-to-semester table folds these checkpoints into the surrounding semester count (Turns 4 and 5 both fall within Semester 4's window; Turns 7 and 8 within Semester 6's; Turns 10 and 11 within Semester 8's), so a player experiences eight academic semesters and three checkpoint turns across eleven total turns.
 
-This chapter provides an overview of the initial survey, which encompasses survey site selection, data collection with the help of videography, pedestrian selection, and the extraction and coding of variables from the collected data.
+Every ordinary turn cycles through four phases in a fixed order: Narrative (context is set --- flavour text, and, from Turn 2 onward, a mandatory Social Maintenance step if the player has an active network) $\rightarrow$ Friction (a random event is drawn and resolved, unavoidable and undrafted) $\rightarrow$ Opportunity (the player drafts one card from the Projects, POR, or Off-Campus Internship pools, gated by cost and prerequisite checks) $\rightarrow$ Action (the player commits their remaining Time Blocks at a single location), before looping back to Narrative for the next turn. Eight of the eleven turns --- 1, 2, 3, 4, 6, 7, 9, 11 --- are "academic" turns: at the close of Action, accumulated Study points for that turn are converted into a Semester SPI via the grading scale, and that SPI is appended to the player's spiHistory. The three checkpoint turns (5, 8, 10) do not run this ordinary cycle: Turn 5 (Interlude) restricts the player to SPO-sponsored internship offers only; Turn 8 (Summer) forces a single binary choice among an Internship, a Project, or Home, and this is also the moment the player's CPI is locked; Turn 10 (Placement Drive) suspends normal play entirely and runs its own three-step sequence --- resume review, followed by a fit evaluation against every company in the placement pool, followed by the reveal of the best eligible offer. Turn 11 then plays out as a normal academic turn representing the final semester, closing the game.
 
+\subsection{Victory Conditions}
 
+The mechanics above are read directly from the prototype's phase machine and are not in question. What follows is not --- because, as flagged at the top of this chapter, no comparison or win-condition logic exists anywhere in the single-player code. The three options below are proposals for confirmation, not a decision already made.
 
-\subsection{Survey Site Selection}
-\lipsum[2]
+\textbf{Option A --- Best Offer Wins.} The player with the highest-CTC eligible placement offer at the end of Turn 10 wins outright, using the same eligibility logic (evaluateAllPlacements / getBestPlacementOffer) that already exists in the code, simply compared across four players instead of one. \emph{What it optimises for:} placement outcome, directly and only. \emph{Why it's meaningful:} it is the most legible win condition to a first-time player and mirrors what real IITK students describe as the terminal, defining event of the lifecycle. \emph{Risk:} this is close to a straight reproduction of the exact "highest CPI/CTC wins" comparison trap that Chapter 1 and Chapter 3 identify as the problem the whole project responds to --- it risks turning Health, Stress, and Social into flavour a skilled player can safely ignore rather than genuine binding constraints, which would undercut the thesis's own design brief.
 
+\textbf{Option B --- Composite Life Score.} At Turn 11, each player's final score combines (i) locked CPI, (ii) the sum of their resume stats (Projects, Internships, POR, Research, Product, Algo), and (iii) a net wellbeing term derived from end-state Health, Stress, and Social, under a weighting scheme still to be tuned. Highest composite wins. \emph{What it optimises for:} a defensible proxy for "who built the most complete, sustainable four years", not just who placed best. \emph{Why it's meaningful:} it directly operationalises Chapter 3's Finding 6 --- that Career Prep and Health \& Wellness need to be genuinely competitive uses of Time Blocks rather than easy first cuts --- by making both scoreable. \emph{Risk:} the weighting is a real design problem, not a cosmetic one; get it wrong and one axis (most likely CPI, since it gates Placement eligibility too) will dominate anyway. This is the exact kind of question Section 4.7's balancing method is built to answer, so this option's risk is contained by later work rather than left open indefinitely.
 
+\textbf{Option C --- Best Story, Not Best Stats.} No numeric winner. At Turn 11, each player's accumulated resume and stat trajectory becomes the basis of a short reveal (a physical "final transcript" component), and the table collectively judges whose trajectory feels most coherent or most enviable given the trade-offs actually visible in play --- closer to a structured reflection round than a scored contest. \emph{What it optimises for:} the thesis's actual stated goal, reflective decision-making, over competitive optimisation. \emph{Why it's meaningful:} it is the option most resistant to being gamed into a dominant strategy, and it directly answers Chapter 1's framing of the lifecycle as something to be rehearsed rather than won. \emph{Risk:} it breaks the "board game needs a clear numeric winner" convention players will expect, and it is by far the hardest of the three to validate with the expected-value/simulation methods Section 4.7 proposes, since there is no scalar to test for balance.
 
-\subsection{Survey Data Collection}
-\lipsum[1]
+The working recommendation, if one is wanted, is Option B --- it is the only one of the three that is both numerically testable (feeds directly into Section 4.7) and thematically consistent with the brief in Section 3.7. Section 4.3.6's rules draft below uses Option B as a provisional default so a complete rulebook can be drafted, but the win-condition clause is explicitly marked as pending confirmation.
 
+\subsection{Game Mechanics}
 
+\textbf{Time Blocks} are the single spendable currency, refreshed to GAME\emph{CONFIG.TIME}BLOCKS\emph{PER}SEMESTER (17) at the start of each academic turn and reduced to zero on the three checkpoint turns (5, 8, 10), where the player has no ordinary allocation decision to make. Every card drafted in Opportunity and every location visited in Action carries an explicit Time Block cost; once spent, a block cannot be recovered within that turn.
 
+\textbf{Turn-level stats} --- Health, Stress, Social, Money, and Study --- are clamped to a 0--10 range at the end of each turn (Logic.clampStats), with one exception that matters more than the clamp itself: the \textbf{debt-cascade rule}. Any of Health, Money, or Social that would go negative is first converted 1:1 into additional Stress before the clamp is applied --- running a deficit in one resource does not simply floor at zero, it actively taxes Stress. This is the mechanical form of the "balancing academics, social life, health, clubs, and career prep is difficult" finding from Chapter 3 (mean 4.13/5, 77.2\% agreement): overspending in any one domain has a cost that shows up somewhere else, not just in the domain itself.
 
+\textbf{Resume stats} --- Projects, Internships, Positions (POR), Research, Product, and Algo --- are a separate, non-decaying counter set. Unlike the turn-level stats, they persist for the whole game and are the inputs the Placement phase actually reads.
 
-\subsection{Sample Selection}
-\lipsum[1-2]
+\textbf{SPI and CPI.} On each of the eight academic turns, accumulated Study points convert into a Semester SPI via the seven-step SPI\emph{GRADING}SCALE already defined in Chapter 1.2 (112 pts $\rightarrow$ 10.00 down to a 0-pt baseline of 4.00), and that SPI is appended to spiHistory. CPI is the strict running average of spiHistory. At the Turn 8 Summer transition, CPI is locked (lockedCPI) --- after this point, the resume-facing CPI value is permanently frozen even though the underlying spiHistory calculation could in principle keep evolving. This is not a metaphor for a Universal Gate; it is the literal code implementation of the concept as defined in Chapter 1.2 --- a checkpoint that permanently fixes a value and determines what is reachable afterward.
 
+\subsection{Interesting Player Choice}
 
+The clearest evidence that this is a genuine choice space rather than a dominant-strategy grind is the POR prerequisite chain. OPP\emph{002 ("secy}anc") cannot be drafted until OPP\emph{001 ("volunteer}anc") has already been taken, and OPP\emph{003 requires OPP}002 in turn --- a real tech-tree, not a flat pool. This means a low-stakes-looking decision in an early semester (spend a Time Block volunteering, or don't) silently forecloses or preserves a high-value option many turns later. Because the requirement strings also support dynamic stat thresholds combined with card prerequisites using "+" (e.g. a senior POR gated on both a prior card and Algo$\geq$2), reaching the top of a given ladder cannot be done by grinding one axis alone --- a player has to have been investing in the underlying stat as well as the positional chain.
 
-\subsection{Data Extraction and Coding}
-\lipsum[13]
+The placement pool makes the same point at the other end of the game. OPP\emph{207 ("Baseline Safe Placement") requires only CPI:6.5 | Algo:1 | Any Intern; OPP}200 ("God-Tier Quant") requires CPI:9.0 | Algo:3 | Research:2 | INT_003 --- a specific named internship, not just a stat floor. Because evaluateAllPlacements computes a match percentage even for companies the player doesn't yet qualify for, the interesting choice in the last two or three semesters isn't binary "will I get placed" --- it's "I'm sitting at, say, 60\% match for the tier I actually want; is my last handful of Time Blocks better spent closing the Research gap, or banking the internship I'm already close to eligible for." That legibility --- seeing exactly what's missing rather than a pass/fail wall --- is what turns the endgame into a choice rather than a lottery.
 
+Friction events sit outside the player's choice (they're drawn, not drafted), but they still shape the choice space: EVT\emph{001 ("Wing Treat") costs nothing and gives +1 Social/âˆ'2 Stress, while EVT}003 ("Movie Night") costs a Time Block for a smaller, +1 Social/âˆ'1 Stress return. Because these are unchosen, their function in the economy is different from a card: they demonstrate that even the turns a player didn't plan for still draw on the same scarce resources, which is the argument for why a buffer --- spare Time Blocks, headroom on Stress --- is itself a strategic asset rather than a byproduct of poor planning.
 
+\subsection{Player Actions}
 
-\section{Summary}
-\lipsum[4]
+\begin{itemize}\item \textbf{Narrative} --- read the turn's context (drawn from timeline.csv); from Turn 2 onward, resolve the Social Maintenance step if an active network exists (applyMaintenanceRewards) before the turn can proceed to Friction.\item \textbf{Friction} --- resolve one randomly drawn event card; there is no drafting or choice here, only acknowledgment and absorption of its cost/reward profile.\item \textbf{Opportunity} --- draft exactly one card (Logic.draftCard, gated by validateAction/evaluateRequirements) from one of three pools: Projects, POR, or Off-Campus Internships.\item \textbf{Action} --- visit exactly one location unlocked for the current semester; visiting can also probabilistically seed a new Social connection, making Action the only phase that also expands future Opportunity/Social options.\item \textbf{Interlude (Turn 5)} --- accept one SPO-sponsored internship offer, or decline.\item \textbf{Summer (Turn 8)} --- choose exactly one of Internship / Project / Home; this is also where CPI locks.\item \textbf{Placement Drive (Turn 10)} --- no drafting; a passive three-step reveal of resume, per-company fit percentage, and the best eligible offer.\end{itemize}
 
+\subsection{Rules}
 
+A first working draft of the physical rulebook. Section 5 (win condition) uses Option B from 4.3.2 as a provisional default --- flagged clearly below --- pending confirmation.
 
+\textbf{1\.} Overview. \[Game Name\] is a 4-player competitive simulation of the IITK undergraduate lifecycle. Each player spends a shared currency, Time Blocks, across academics, career-building, health, and social life over eight semesters, working toward a Placement Drive that permanently gates their outcome.
 
+\textbf{2\.} Setup. Each player takes a player mat tracking Health, Stress, Social, Money, Study, resume stats, and CPI, all starting at their listed baseline values. Shuffle the Projects, POR, Internship, Friction, Location, and Social decks separately. Place the Placement deck face-down; it is not touched until Turn 10.
 
+\textbf{3\.} Turn structure. The game proceeds through 11 turns. On each of Turns 1, 2, 3, 4, 6, 7, 9, and 11 ("academic turns"), all players resolve the following phases in order: 3.1 Narrative --- read the turn's event context aloud. If you have an active network (Rule 7) and have not yet done so this turn, you may spend Time Blocks to maintain a relationship for its stat reward. 3.2 Friction --- draw the top card of the Friction deck and apply its cost/reward immediately. This is mandatory and cannot be refused. 3.3 Opportunity --- you may draft one card from the Projects, POR, or Internship pools, provided you can pay its Time Block/resource cost and satisfy any prerequisite listed on the card. 3.4 Action --- spend your remaining Time Blocks at a single unlocked Location. 3.5 At the end of Action on an academic turn, convert accumulated Study points to a Semester SPI using the SPI table on your reference card, and record it.
 
-%%%%%%%%%%%%%%%%% Changes%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{4\.} Checkpoint turns. 4.1 Turn 5 --- Interlude. Skip the normal cycle. Choose one SPO-sponsored internship offer, or decline. 4.2 Turn 8 --- Summer. Skip the normal cycle. Choose exactly one: an Internship, a Project, or Home. Your CPI is now locked and will not change for the rest of the game. 4.3 Turn 10 --- Placement Drive. Skip the normal cycle. Reveal your resume. Compare it against every company card to see your match percentage. The company with the highest CTC among those you fully qualify for is your placement outcome.
 
+\textbf{5\.} Win condition \[provisional --- Option B, pending confirmation\]. After Turn 11, each player calculates a composite score from their locked CPI, total resume stats, and net end-state wellbeing (Health + Social âˆ' Stress). Highest composite wins.
 
+\textbf{6\.} The debt-cascade rule. If any action or event would push your Health, Money, or Social below zero, convert the shortfall into Stress instead of allowing a negative value.
 
+\textbf{7\.} Social maintenance. Locations you visit can introduce new contacts to your network. Each contact offers a repeatable stat reward for a Time Block spend, plus a one-time career bonus the first time you maintain them.
 
+\subsection{Mechanisms}
 
+The code evidences a specific, nameable set of formal game-design mechanisms, and the physical translation should keep to these rather than importing mechanisms the prototype doesn't support:
 
+\begin{itemize}\item \textbf{Resource management} --- Time Blocks as the single spendable currency across every phase.\item \textbf{Card drafting} --- a curated draw from three distinct pools each Opportunity phase, rather than a shared open market.\item \textbf{Prerequisite / tech-tree chains} --- the POR ladders and any +-combined requirement string, including named-card-plus-stat-threshold gates.\item \textbf{Requirement-gated actions} --- hard eligibility checks (validateAction, evaluateRequirements) rather than probabilistic success; an action is either legal or it isn't.\item \textbf{Forced random-event resolution} --- the Friction phase is drawn, not drafted, and cannot be declined; it functions as a "push" the player must absorb rather than opt into.\item \textbf{Partial-credit / transparent scoring} --- evaluateAllPlacements computing a match percentage for every company, including ineligible ones, so the player always knows exactly what's missing rather than facing a binary pass/fail.\item \textbf{Checkpoint locking} --- the lockedCPI freeze at Turn 8, a snapshot-and-freeze device with no analogue elsewhere in the system.\item \textbf{Relationship/asset activation with one-time bonuses} --- the network mechanic combines a repeatable resource trade with a one-time-only bonus per contact, gated by state.mentorBonusesClaimed.\end{itemize}
 
+\emph{PROPOSED, not evidenced in code: the digital prototype is single-player, so there is no contention over the shared card pools --- nothing in the code models four players drafting from the same deck simultaneously. For the physical version to preserve genuine competitive tension in Opportunity, some form of simultaneous or turn-order-sensitive drafting (e.g., a shrinking shared market, or private hands dealt per player) will need to be designed fresh; this is a gap the code cannot fill and should be treated as a proposal, not an extraction.}
 
+\subsection{Game Components}
 
+Proposed --- for confirmation before treating as final in Chapter 5.
 
+\begin{itemize}\item 1 main board: an 11-turn / 8-semester track with the four-phase cycle marked, and the three checkpoint turns (5, 8, 10) visually distinguished.\item 4 player mats, each tracking Time Blocks (17-slot per-semester track), Health/Stress/Social/Money/Study, the six resume stats, and CPI (with a physical "lock" indicator for Turn 8).\item Time Block tokens (17 per player per semester) and resource cubes or a dial track for Health/Stress/Social/Money.\item Card decks sized to the actual databases: a 9-card Projects deck, a 60-card POR deck (structured as the prerequisite ladders described in 4.3.4), a 10-card Internship deck (SPO vs. off-campus subtypes), a 15-card Friction deck, a 21-card Location deck, an 8-card Social/Network deck, and an 8-card Placement company deck.\item An SPI reference card reproducing the seven-step grading scale.\item A Placement Drive overlay or insert supporting the three-step reveal (resume $\rightarrow$ per-company match\% $\rightarrow$ best offer).\item Turn/phase marker.\item A shuffled deck functions as the randomiser for Friction draws; the code contains no dice logic, so dice are not proposed unless additional variance beyond the current design is wanted.\item Player pawns are the most speculative item on this list --- the digital Location set is a filtered list, not a spatial board, so a literal board position for pawns would be a genuinely new design addition rather than a translation.\end{itemize}
 
+\section{Games Are Unpredictable}
 
+The single confirmed source of randomness in the codebase is the Friction draw --- a uniformly random pull from the semester-valid event pool. Its magnitude is modest relative to what deliberate choice can move: friction cards shift one or two stats by a point or two, where a single deliberately drafted Project or POR card can move Study, Algo, or Research by several points at once. Variance, in other words, adds texture to a turn without being able to override the cumulative effect of eight semesters of chosen drafts.
 
+A second, subtler kind of unpredictability is not randomness at all but withheld information: a player does not see their exact placement match percentage against every company until Turn 10's fit-evaluation step, even though every choice that determines that percentage was made across the preceding seven semesters. This is a designed fog rather than a probability distribution --- the player is never told the odds, only, retroactively, the result --- and it reproduces something real about the IITK placement drive: students commit to years of trade-offs against criteria they can estimate but never fully verify until the CPI lock and the drive itself.
 
+Because the only literal Math.random() call in the engine sits inside the Friction draw, and its effect size is small next to the deliberate Opportunity/Action choices players make roughly thirty separate times across the game, the design is skill-and-choice-dominant with light random texture, not a luck-driven system --- a property worth preserving explicitly when the physical version's balancing is validated in Section 4.7.
 
+\section{Internal Economy}
 
+The economy traces as one connected pipeline. Time Blocks are the single upstream resource; every Player Action spends them and produces two parallel downstream effects --- Study points, which feed the stepped SPI scale each academic turn, and the resume-and-survival stats (Algo, POR, Research, Health, Stress, Social, and the rest), which accumulate independently. The academic branch compounds through Semester SPI into CPI, which is then frozen as Locked CPI at Turn 8 --- the Universal Gate, in the literal sense defined in Chapter 1.2. Locked CPI and the resume/survival branch converge only once, at Placement Eligibility, where every company's requirement string reads both simultaneously; the eligible companies with the highest CTC become the Placement Outcome.
 
+The feedback loop that doesn't reduce to a simple arrow sits inside the debt-cascade rule from Section 4.3.3: Stress that has been pushed up by earlier deficits is checked by the game's burnout rule before any future action is allowed, meaning the survival-stats branch loops back and constrains how freely a player can keep drawing on the Player Actions node in later turns. Read the two branches (academic and resume/survival) as running in parallel for most of the game, converging exactly once, at the gate that matters most.
 
+This alignment is not incidental: the five dimensions this economy tracks per player --- CPI, Algo, POR, Research, Product --- are the same five dimensions a decision-tree analysis of 57 real IITK resumes against their actual 2024 SPO placement outcomes (Section 3.8) found to be the features that separate one placement outcome from another. The Universal Gates thresholds in placement.csv were informed directly by that analysis, so this economy is not a plausible-sounding design metaphor --- it is calibrated against measured placement behaviour.
 
+\section{Game Balancing}
 
+The Test and Iterate phase described in Chapter 1.3 already establishes the validation method the digital prototype was built for: "headless simulation runs replicate distinct student profiles across hundreds of execution loops to uncover mechanical imbalances, locate structural traps, and calibrate baseline victory parameters." The physical, four-player version needs the same method extended one level, from single-player feasibility to comparative fairness across archetypes.
 
+\textbf{Proposed method.} Define three archetype policies that make deterministic (or weighted-random) decisions each turn --- an Academic Maximizer (funnels Time Blocks toward Study whenever possible), a POR-Ladder Climber (prioritises the prerequisite chain described in 4.3.4), and a Balanced Generalist (splits allocation roughly evenly across Study, POR, and Social maintenance) --- and run each policy through hundreds of full 11-turn playthroughs using the actual engine logic, exactly as the existing single-player validation already does. For each archetype, record the resulting CPI distribution, resume-stat totals, and --- critically --- the eight-tier SPI\emph{GRADING}SCALE as a reference case for what "balanced" needs to check: verify that no archetype reaches the top SPI tier (112 study points, SPI 10.00) as a trivial byproduct of its main strategy, since that threshold is deliberately supposed to require near-total sacrifice of every other domain.
 
+Three concrete checks follow directly from this simulation output:
 
+\textbf{1\.} No dominant archetype. Under whichever victory condition is confirmed from Section 4.3.2 (Option B's composite score is directly testable this way), no single archetype should win a large majority of simulated playthroughs --- if the Academic Maximizer wins nearly every run, the composite weighting needs rebalancing before the physical weights are finalised.
 
+\textbf{2\.} Reachability of the placement tiers. Run each archetype's final resume against the full eight-company placement pool (from OPP\emph{207's baseline bar up to OPP}200's top-tier requirement) and confirm every tier is reachable by at least one archetype under plausible Time Block allocation --- a tier no simulated archetype can ever reach is effectively decorative.
 
+\textbf{3\.} Recovery sufficiency. Stress-test the debt-cascade rule against an unlucky sequence of Friction draws (worst-case ordering, not average) to confirm a player who takes a genuinely bad run of events can still recover rather than entering an unrecoverable spiral --- this is the direct comparative-fairness question a four-player game adds on top of what the single-player validation already checked.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\emph{Note: Chapter 5's balancing section (5.5) runs a version of this exact method already --- a 5-archetype, 800-trial Monte Carlo simulation grounded in the same SPI}GRADING\emph{SCALE and Time Block math described here. Reconcile the archetype definitions between this section and 5.5 so both chapters describe the same simulation rather than two similar-but-different ones.}
