@@ -1,54 +1,140 @@
-% Chapter Template
+% Chapter 1: Introduction
+% -----------------------------------------------------------------------
 
-\chapter{Introduction}\doublespacing % Main chapter title
+\chapter{Introduction}
+\label{chap:introduction}
 
-\label{Chapter1} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+\section{Background}
+\label{sec:background}
 
-\lhead{Chapter I. \emph{Introduction}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+\subsection*{The Anxious Architecture of the IITK Undergraduate Lifecycle}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
-\section{Introduction}
+The four-year undergraduate lifecycle at the Indian Institute of Technology Kanpur (IITK) compresses one of the highest-stakes decision-making periods of a young adult's life into roughly 208 weeks, almost all of which are simultaneously oversubscribed by academics, extracurriculars, social belonging, health, and the looming spectre of placement. Unlike a conventional degree, where trade-offs unfold gradually, IITK front-loads its defining transitions: branch allocation is finalised within the first three semesters, internship selection arrives by the fourth, and a single CPI snapshot taken at the end of the sixth semester is locked in and used to gate access to the placement drive for the remainder of a student's time on campus. Every choice --- which club to prioritise, whether to chase a research project or a Position of Responsibility (POR), how many hours of sleep to sacrifice for one more problem set --- is made inside a closing window, with consequences that compound and almost no institutional mechanism for rehearsal before commitment.
 
-\lipsum[1]
+This lifecycle also follows a recognisable psychological arc. Students typically arrive carrying the confidence of having topped a national entrance exam, only to undergo an early reality check as grades stop tracking effort in familiar ways and imposter syndrome sets in. By the third semester, branch allocation forces an identity crisis, asking students to commit to a specialisation before they have had a real chance to explore it. The internship season that follows functions as a comparison trap, where CPI, coding portfolio, and research output become a currency that is compared and ranked, often for the first time. Only in the fifth and sixth semesters do most students report anything resembling a search for autonomy --- asking, belatedly, whether the race they have been running is one they actually chose. What makes this arc a design problem rather than just a personal one is that almost none of it is rehearsable: a student cannot ``try on'' a branch, a POR, or a placement track before living through it once, for real, with real academic and social cost.
 
+\subsection*{Evidence from IITK Students}
+\label{sec:evidence}
 
-
-
-
-\section{Problem Statement}
-
-\lipsum[2]\\
-
-
-
- 
-\section{Need of the Study}
-
-\lipsum[1-2]\\
-
-
-
-
-\section{Study Objective}
-\lipsum[1]
+A pre-study survey of IITK students and alumni ($N = 114$, spanning first year through alumni, after removing duplicate submissions) grounds this arc in campus-specific numbers rather than general claims about student wellbeing.
 
 \begin{itemize}
-    \item Uum sociis natoque penatibus et magnis dis
-        parturient montes, nascetur ridiculus mus.
-    \item Sociis natoque penatibus et magnis dis
-        parturient montes, nascetur ridiculus mus.
+  \setlength\itemsep{0.4em}
+  \item 77\% of respondents rated balancing academics, social life, health, clubs, and career prep as difficult ($\geq 4/5$), and 82\% reported regularly sacrificing sleep to meet these competing demands.
 
+  \item Yet only 27\% felt clear about what they should prioritise at each stage of their degree, while 42\% actively disagreed that they had this clarity --- a gap between demand and direction that plausibly underlies why 68\% reported high stress or anxiety in a typical semester and 35\% felt they needed mental health support but did not seek it.
+
+  \item Decision-making is strikingly self-reliant and peer-mediated rather than institutionally supported: asked whom they relied on most for major decisions, 39\% said ``mainly myself,'' 26\% named their wing or friend group, and only 4\% named their Student Guide/Academic Mentor (SG/AM) --- the formal support structure IITK provides for exactly this purpose. This tracks with the fact that only 43\% felt comfortable approaching 3rd/4th-year seniors for advice, and just 35\% said they usually knew exactly whom to ask when they needed it.
+
+  \item 73\% of respondents wished they could ``try out'' different life paths safely before committing to them, and 66\% said they would be interested in a game-based tool for exploring these trade-offs, with 67\% agreeing a game would be more useful than talks or PPTs for exploring trade-offs --- direct evidence that students want a rehearsal space, not more advice.
 \end{itemize}
 
+\subsection*{The Gap in Existing Tools}
+\label{sec:gap}
 
+This local evidence sits inside a broader, documented failure of existing career-guidance approaches. Students seeking guidance today rely on mentors offering narrow, individual perspectives or on LLM tools that generate idealised advice shown to feel generic regardless of a student's specific institutional context~\cite{simon2025}. Before exploration can happen at all, self-awareness must come first~\cite{lynn2023}, yet current tools skip this step entirely. Persona-based foresight --- grounding exploration in real peer trajectories rather than abstract hypotheticals --- makes futures feel relatable instead of distant~\cite{orf2023} but remains untested in student career contexts. Self-guided reflection interventions, where they exist, tend to produce only static, one-time snapshots~\cite{mercer2025}, and LLM tools default to delivering answers rather than developing the critical reasoning that career decisions actually require~\cite{gakujo2023}.
 
-\section{Thesis Organization}
-This thesis consists of 6 chapters, including the present chapter (Chapter \ref{Chapter1}) of introduction to the research topic. This chapter describes the need for the study,
-the problem statement and objectives of the study, and a brief thesis outline. Chapter \ref{Chapter2} provides a review of past literature related to \ldots. Chapter \ref{Chapter3} briefly describes the methodology adopted to fulfill the current objectives. Chapter \ref{Chapter4} describes details of survey locations, data collection, and data extraction. The \ldots modeling using regression analysis is discussed in Chapter \ref{Chapter5}. Chapter \ref{Chapter6} summarizes the conclusions and research contributions of the current work and presents practical implications \ldots.
+The stakes of leaving this gap unaddressed are rising, not stable. Generative AI is simultaneously eliminating over 13\% of traditional entry-level positions~\cite{simon2025}, turning the absence of genuine career agency tools into a technological and economic emergency rather than a purely pedagogical one. In India, 86\% of undergraduates report complete uncertainty about post-degree job preferences~\cite{cabinet2024}. At the same time, employers are actively restructuring hiring criteria away from static credentials toward self-directed agency and reflective decision-making~\cite{yatani2024} --- yet only 42.6\% of Indian graduates currently meet these evolving employability standards~\cite{jeon2025}. The IITK-specific survey data above suggests this is not a problem happening elsewhere: it is already present, in comparable magnitude, on this campus.
 
-\section{Summary}
-\lipsum[1]\\
+\begin{quotation}
+\noindent\itshape\small
+[VERIFY: in-text citation numbers for the persona-based foresight claim and the 86\% post-degree uncertainty claim above were flagged earlier as possibly attached to a different source than their listed reference titles suggest --- worth a final citation audit pass before submission, alongside the fuller Chapter~2 audit noted at the end of the References section.]
+\end{quotation}
 
- 
+\section{Core Terminology}
+\label{sec:core-terminology}
+
+To make the problem space above simulatable rather than just descriptive, the IITK Campus Simulator formalises it using three constructs.
+
+\subsection*{Time Blocks}
+\label{sec:time-blocks}
+
+Time Blocks are the atomic, non-renewable unit of time-currency in the simulation. Each semester is allotted a fixed \textbf{17 Time Blocks}, standing in for the finite hours a student actually has to spend once classes, sleep, and fixed obligations are accounted for. Every action available to the player --- a project, a club commitment, a social event, a friction/random event --- carries an explicit Time Block cost, and once a block is spent it cannot be recovered within that semester. This forces the same structural trade-off real IITK students describe in the survey above (\cref{sec:evidence}): time given to one domain (say, Clubs/sports/passions, which 59 of 114 respondents said already gets the most of their time) is time that cannot simultaneously go to another (Career prep and Health \& wellness were the domains most respondents wished got \emph{more} time). Time Blocks are what turn ``balancing academics, social life, health, clubs, and career prep is difficult'' from a survey statistic into a mechanic the player has to personally negotiate, turn after turn.
+
+\subsection*{Performance Thresholds}
+\label{sec:performance-thresholds}
+
+Performance Thresholds are the graduated cutoffs that convert a player's accumulated in-semester effort (Study points, drawn from the actions they chose) into a single, discrete academic performance metric --- their Semester Performance Index (SPI). Rather than a linear points-to-grade mapping, the simulator uses a stepped scale with escalating cost for each additional threshold, shown in \cref{tab:thresholds}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Performance Threshold conversion from Study points to Semester Performance Index (SPI).}
+  \label{tab:thresholds}
+  \begin{tabular}{cc}
+    \toprule
+    \textbf{Study points required} & \textbf{SPI awarded} \\
+    \midrule
+    112 & 10.00 \\
+    98  & 9.00  \\
+    84  & 8.00  \\
+    70  & 7.00  \\
+    56  & 6.00  \\
+    42  & 5.00  \\
+    0   & 4.00 (baseline) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The gap between each threshold is constant (14 points), but reaching the top threshold effectively requires ``complete academic sacrifice'' --- nearly all of a semester's Time Blocks funnelled into Study, leaving little for anything else. This mirrors the reality that IITK's grading is relative and thresholded rather than purely effort-proportional, and that each additional grade point demands a steeper, not flatter, investment of the scarce Time Blocks defined above.
+
+\subsection*{Universal Gates}
+\label{sec:universal-gates}
+
+Universal Gates are fixed, non-negotiable checkpoints in the timeline that every player passes through regardless of the strategy or branch they have chosen, and which cannot be skipped, deferred, or substituted the way optional Opportunity or Friction cards can. The clearest example is the Placement Drive: at the end of the sixth semester, a player's CPI is permanently locked based on their transcript to that point, and eligibility to even enter the drive is gated on hard requirements (e.g., a minimum technical bar such as Algo 1+, and a secured internship) that sit outside the player's ordinary turn-by-turn choices. Where Time Blocks and Performance Thresholds shape how well a player can perform within a path, Universal Gates determine which paths remain open to them at all --- failing to clear one forecloses entire branches of the simulation's possibility space (e.g., specific companies, specific offer types) irrespective of how well the player otherwise managed their time or grades. They are the simulator's formal representation of IITK's real, irreversible institutional checkpoints --- the moments the survey data shows students experience with the least agency and the most anxiety.
+
+\section{Approach --- Design Thinking}
+\label{sec:approach}
+
+This study adopts a human-centred design thinking framework to transform the qualitative lifecycle trade-offs and quantitative institutional anxieties identified among undergraduates into a mathematically balanced tabletop simulation. While conventional career-guidance mechanisms rely on idealised, non-contextual static models that fail to match specific institutional realities, the design thinking approach grounds the system architecture in the empirical day-to-day choices of the student population. The development process is executed systematically across six iterative phases:
+
+\begin{center}
+\itshape Understand \& Empathize $\rightarrow$ Define $\rightarrow$ Ideate $\rightarrow$ Prototype $\rightarrow$ Test \& Iterate $\rightarrow$ Implement
+\end{center}
+
+\begin{description}
+  \item[Understand and Empathize.] Primary data gathering is conducted through campus-wide diagnostic surveys ($N = 114$) alongside the collection of experiential data to map the operational realities of the four-year IITK undergraduate lifecycle. This phase focuses on uncovering the specific temporal bottlenecks, peer comparison dynamics, and stress vectors experienced by students across different academic terms.
+
+  \item[Define.] Insights collected from student data are synthesised to map the primary design problem: how the lack of risk-free choice exploration directly leads to suboptimal time allocation, identity traps, and burnout. This phase establishes explicit student personas and details a multi-tiered stakeholder map to formalise system constraints.
+
+  \item[Ideate.] Computational and game-based concepts are generated to transform qualitative lifecycle phases into an active resource economy. Academic stress, extracurricular oversubscription, and professional gatekeeping are translated into distinct, sequential gameplay phases that move from early entry orientation to terminal career drives.
+
+  \item[Prototype.] The simulation logic is implemented through a dual development pipeline. A digital software engine built in vanilla JavaScript, driven by eight modular database files (\texttt{timeline.csv}, \texttt{friction.csv}, \texttt{POR.csv}, \texttt{internships.csv}, \texttt{placement.csv}, \texttt{projects.csv}, \texttt{social.csv}, and \texttt{locations.csv}), is compiled to validate state-machine transitions before translating them into physical board layouts.
+
+  \item[Test and Iterate.] The simulation engine is subjected to automated computational testing alongside focused manual sessions. Headless simulation runs replicate distinct student profiles across hundreds of execution loops to uncover mechanical imbalances, locate structural traps, and calibrate baseline victory parameters.
+
+  \item[Implement.] The finalised framework is converted into a high-density, four-player tabletop board game experience. The game manual, player reference matrices, and underlying structural constants combine to create an instructional design tool engineered to foster proactive career agency and long-term reflection.
+\end{description}
+
+\section{Research Objectives}
+\label{sec:objectives}
+
+The overarching goal of this thesis is to construct a rigorous, data-validated gamified simulation that models institutional pressures and career development paths to foster reflective decision-making in technical undergraduates. To achieve this, the study targets the following specific research objectives:
+
+\begin{itemize}
+  \setlength\itemsep{0.4em}
+  \item \textbf{To systematically investigate and decompose} the structural trade-offs, time-allocation bottlenecks, and socio-academic anxiety profiles that define the undergraduate lifecycle at a premier engineering institution (IITK).
+
+  \item \textbf{To construct an integrated system architecture} that translates qualitative campus dynamics --- including relative grading scales, positions of responsibility, and peer-mediated networking --- into a quantifiable, non-renewable resource economy.
+
+  \item \textbf{To design, build, and computationally validate} an interactive board game simulation that mirrors real-world institutional gates while providing players with a safe, repeatable space for choice experimentation.
+
+  \item \textbf{To programmatically analyze and stress-test} the simulator's internal engine parameters through automated simulation scripts to eliminate dominant strategies, ensure balanced mechanical paths, and evaluate student behavior patterns.
+\end{itemize}
+
+\section{Thesis Outline}
+\label{sec:outline}
+
+The remainder of this thesis is organised into five further chapters, detailing the progression from initial problem definition to final system evaluation.
+
+\begin{itemize}
+  \setlength\itemsep{0.4em}
+  \item \textbf{Chapter 2: Literature Review} examines the theoretical underpinnings of career construction theory and career adaptability models. It analyses the systemic shortfalls of existing linear advice systems and passive digital interventions, establishing the rationale for deploying simulation-driven procedural rhetoric to build student career agency.
+
+  \item \textbf{Chapter 3: User Research} presents the methodology and empirical outcomes of the primary field research. It provides an in-depth statistical analysis of the diagnostic survey completed by 114 IITK students and alumni, a decision-tree analysis of real 2024 placement data, details the resulting behavioural personas, and outlines the institutional stakeholder matrix.
+
+  \item \textbf{Chapter 4: Game Design} details the architectural framework of the simulator. It formalises the turn structure, action spaces, and proposed conditions for victory, explaining how the concepts of Time Blocks, Performance Thresholds, and Universal Gates are mapped onto the physical state components of the game.
+
+  \item \textbf{Chapter 5: Design Ideation, Playtesting and Final Product} chronicles the design history of the game. It describes the transition from the digital engine to a four-player physical prototype, documents the system-balancing simulation, and lays out the formative playtesting plan.
+
+  \item \textbf{Chapter 6: Conclusion} (forthcoming) will synthesise the core contributions of this research, outline the limitations of the current data and design, and present strategies for extending the framework to other institutional environments.
+\end{itemize}
